@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="css/board.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><a href="index.html">홍's 홈페이지</a></h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="profile.html">PROFILE</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="study.html">STUDY</a></li>
+                <li><a href="todolist.html">TODOLIST</a></li>
+                <li><a href="board.html" class="active">BOARD</a></li>
+            </ul>
+        </div>
+        <h1>게시판</h1>
+        <button id="newPostButton" class="btn">새 글 작성</button>
+        <button id="deleteSelectedButton" class="btn">선택한 글 삭제</button>
+        <table class="board-table">
+            <thead>
+                <tr>
+                    <th>선택</th>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>수정</th>
+                </tr>
+            </thead>
+            <tbody id="postList">
+                <!-- 게시물 목록이 JavaScript에 의해 동적으로 생성됩니다. -->
+            </tbody>
+        </table>
+
+        <!-- 게시글 상세보기 섹션 -->
+        <div class="post-detail" id="postDetail" style="display: none;">
+            <h2 id="postDetailTitle"></h2>
+            <p><strong>작성자:</strong> <span id="postDetailAuthor"></span></p>
+            <p><strong>작성일:</strong> <span id="postDetailDate"></span></p>
+            <p id="postDetailContent"></p>
+            <button id="deletePostButton" class="btn">삭제</button>
+        </div>
+
+        <!-- 댓글 섹션 -->
+        <div class="comments-section" id="commentsSection" style="display: none;">
+            <h3>댓글</h3>
+            <div id="commentsList"></div>
+            <div class="form-group">
+                <label for="commentAuthor">작성자:</label>
+                <input type="text" id="commentAuthor" required>
+            </div>
+            <div class="form-group">
+                <label for="commentContent">내용:</label>
+                <textarea id="commentContent" rows="3" required></textarea>
+            </div>
+            <button id="addCommentButton" class="btn">댓글 추가</button>
+        </div>
+
+        <!-- 게시글 작성/수정 폼 -->
+        <div id="postForm" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2 id="formTitle">새 글 작성</h2>
+                <form id="form">
+                    <input type="hidden" id="postId">
+                    <div class="form-group">
+                        <label for="postTitle">제목:</label>
+                        <input type="text" id="postTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postAuthor">작성자:</label>
+                        <input type="text" id="postAuthor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">내용:</label>
+                        <textarea id="postContent" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">저장</button>
+                </form>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 이재홍의 홈페이지. All Rights Reserved.</p>
+        </footer>
+
+        <script src="/js/scripts.js"></script>
+    </div>
+</body>
+</html>
